@@ -1,8 +1,9 @@
 import { Image, SectionList, View, Text } from 'react-native';
 import { useEffect, useState } from 'react'
+import { ArrowUpRight } from 'phosphor-react-native'
 
 import { Container, Header, PercentOFMeals,
-   NumberPercent, Info, IconArrowUpRight, Meals, ContainerMeal, 
+   NumberPercent, Info, Meals, ContainerMeal, 
    NameMeal, HourMeal,CompletedMeal,Date, Divider} from './styles';
 
 import logo from '@assets/logo.png'
@@ -127,7 +128,12 @@ export function Dashboard() {
       <PercentOFMeals percentage={percentageOfMeals}>
         <NumberPercent>{`${percentageOfMeals}%`}</NumberPercent>
         <Info>das refeições dentro da dieta</Info>
-        <IconArrowUpRight/>
+        <ArrowUpRight size={24} weight='thin' color={percentageOfMeals > 50 ? '#639339' : '#BF3B44'}
+          style={{
+            position: 'absolute',
+            top: 8,
+            right: 8,
+        }}/>
       </PercentOFMeals>
 
       <Meals>Refeições</Meals>

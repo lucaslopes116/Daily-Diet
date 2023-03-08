@@ -1,6 +1,5 @@
 import styled , { css } from 'styled-components/native';
 import {SafeAreaView} from 'react-native-safe-area-context'
-import { ArrowUpRight } from 'phosphor-react-native'
 
 
 export const Container = styled(SafeAreaView)`
@@ -56,15 +55,6 @@ export const Meals = styled.Text`
   margin-top: 40px;
   margin-bottom: 4px;`;
 
-  export const IconArrowUpRight = styled(ArrowUpRight).attrs(({ theme}) => ({
-    size: 24,
-    color: theme.COLORS.GREEN_DARK,
-    weight: 'thin'
-  }))`
-    position: absolute;
-    top: 8px;
-    right: 8px;
-  `;
 
 export const NameMeal = styled.Text`
 ${({theme})=>css`
