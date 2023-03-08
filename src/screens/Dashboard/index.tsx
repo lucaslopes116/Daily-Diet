@@ -123,7 +123,7 @@ export function Dashboard() {
       </Header>
 
       <PercentOFMeals>
-        <NumberPercent>{`${(meals?.totalMealsCompleted * 100 /meals?.totalOfMeals  ) }%`}</NumberPercent>
+        <NumberPercent>{`${(meals?.totalMealsCompleted * 100 /meals?.totalOfMeals).toFixed(2) }%`}</NumberPercent>
         <Info>das refeições dentro da dieta</Info>
         <IconArrowUpRight />
       </PercentOFMeals>
