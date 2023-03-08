@@ -55,7 +55,7 @@ const fake = [
       {
         hour: '16:00',
         meal: 'Whey protein com leite',
-        completed: true,
+        completed: false,
       },
       {
         hour: '12:30',
@@ -80,17 +80,17 @@ const fake = [
       {
         hour: '16:00',
         meal: 'Whey protein com leite',
-        completed: true,
+        completed: false,
       },
       {
         hour: '12:30',
         meal: 'Salada cesar com frango grelhado',
-        completed: true,
+        completed: false,
       },
       {
         hour: '09:30',
         meal: 'Vitamina de banana com abacate',
-        completed: true,
+        completed: false,
       },
     ]
   }
@@ -99,6 +99,7 @@ const fake = [
 
 export function Dashboard() {
   const [meals, setMeals] = useState(()=>{})
+  const [percentageOfMeals, setPercentageOfMeals] = useState(0)
 
   useEffect(()=>{
     let meals = fake.reduce((acc, crr, index)=>{
@@ -113,6 +114,7 @@ export function Dashboard() {
       }
     )
     setMeals(meals)
+    setPercentageOfMeals((meals?.totalMealsCompleted * 100 /meals?.totalOfMeals).toFixed(2))
   },[])
 
   return (
@@ -122,10 +124,10 @@ export function Dashboard() {
         <Image source={Ellipse} />
       </Header>
 
-      <PercentOFMeals>
-        <NumberPercent>{`${(meals?.totalMealsCompleted * 100 /meals?.totalOfMeals).toFixed(2) }%`}</NumberPercent>
+      <PercentOFMeals percentage={percentageOfMeals}>
+        <NumberPercent>{`${percentageOfMeals}%`}</NumberPercent>
         <Info>das refeições dentro da dieta</Info>
-        <IconArrowUpRight />
+        <IconArrowUpRight/>
       </PercentOFMeals>
 
       <Meals>Refeições</Meals>

@@ -19,8 +19,8 @@ export const Header = styled.View`
   margin-bottom: 32px;
 `;
 
-export const PercentOFMeals = styled.View`
-  background-color: ${({theme})=>theme.COLORS.GREEN_LIGHT};
+export const PercentOFMeals = styled.View.attrs((props: {percentage: number})=> props)`
+  background-color: ${props => props.percentage > 50 ? '#E5F0DB' : '#F4E6E7'};
   border-radius: 8px;
 
 `;
