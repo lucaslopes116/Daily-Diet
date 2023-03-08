@@ -1,5 +1,5 @@
 import { Image, SectionList, View, Text } from 'react-native';
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Container, Header, PercentOFMeals,
    NumberPercent, Info, IconArrowUpRight, Meals, ContainerMeal, 
@@ -98,7 +98,22 @@ const fake = [
 
 
 export function Dashboard() {
-  const [fakeData, setFakeData] = useState<FakeDataProps[]>([])
+  const [meals, setMeals] = useState(()=>{})
+
+  useEffect(()=>{
+    let meals = fake.reduce((acc, crr, index)=>{
+      acc.totalOfMeals += crr.data.length
+      acc.totalMealsCompleted += crr.data.filter((meal => meal.completed)).length
+
+      return acc
+    },
+      {
+        totalOfMeals: 0,
+        totalMealsCompleted: 0
+      }
+    )
+    setMeals(meals)
+  },[])
 
   return (
     <Container>
@@ -108,7 +123,7 @@ export function Dashboard() {
       </Header>
 
       <PercentOFMeals>
-        <NumberPercent>90,86%</NumberPercent>
+        <NumberPercent>{`${(meals?.totalMealsCompleted * 100 /meals?.totalOfMeals  ) }%`}</NumberPercent>
         <Info>das refeições dentro da dieta</Info>
         <IconArrowUpRight />
       </PercentOFMeals>
