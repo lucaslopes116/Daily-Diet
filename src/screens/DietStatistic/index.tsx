@@ -33,7 +33,7 @@ export function DietStatistic(props) {
           <Title>Estatísticas gerais</Title>
           <Wrapper>
             <SequenceOfDishes>
-              <Numbers></Numbers>
+              <Numbers>10</Numbers>
               <InfosAboutDiet>melhor sequência de pratos dentro da dieta</InfosAboutDiet>
             </SequenceOfDishes>
             <RegisteredMeals>
